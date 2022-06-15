@@ -1,0 +1,45 @@
+  <div class="container ">
+    
+    <div class="field">
+        <p>Please click get button</p>
+        <button (click)= newCategories() class="button is-success button_weight" >Get</button>
+      </div> 
+      <div class="container ">
+      
+      <p>Which category you want to update, must click "check" button first</p>
+      </div>
+      <table  class="table background" *ngIf ="app.categories.length > 0" border="1" >
+        <thead>
+          <tr>
+            <th><abbr title="Position">Id</abbr></th>
+          </tr>
+        </thead>
+          <tr *ngFor="let cat of this.app.categories">
+            <td>
+             {{cat.id}}
+            </td>
+  
+            <div class="field">
+                <button (click)= getId(cat.id,cat) class="button is-danger button_weight" >Check</button>
+              </div>
+
+    <div  class="column is-offset-4">
+        <div class="field">
+        <input type="number" placeholder="id"    class="input is-primary input_update"  [(ngModel)]="cat.id" />
+        </div>
+        <div class="field">
+        <input type="text"  placeholder="Title"    class="input is-primary input_update"  [(ngModel)]="cat.title" />
+        </div>
+        <div class="field">
+        <input type="text"  placeholder="Description"    class="input is-primary input_update" [(ngModel)]="cat.description"  />
+        </div>
+     <div class="field">
+        <button (click)="updateClick(cat.id,cat)" class="button is-success" >
+            Update
+            </button>
+      
+      
+     </div>
+    </div>
+
+
